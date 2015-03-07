@@ -51,6 +51,25 @@ public class DeckTester {
 		System.out.println();
 		System.out.println();
 
-		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
+		String[] ranks2 = {"ace","king","queen","jack","ten","nine","eight","seven","six","five","four","three","two"};
+		String[] suits2 = {"hearts","diamonds","spades","clubs"};
+		int[] values2 = {14,13,12,11,10,9,8,7,6,5,4,3,2};
+		Deck deck2 = new Deck(ranks2, suits2, values2);
+		
+		System.out.println("**** Original Deck Methods ****");
+		System.out.println("  toString:\n" + deck2.toString());
+		System.out.println("  isEmpty: " + deck2.isEmpty());
+		System.out.println("  size: " + deck2.size());
+		System.out.println();
+		System.out.println();
+		
+ 		deck2.shuffle();
+		
+		System.out.println("**** After Shuffling ****");
+		System.out.println("  toString:\n" + deck2.toString());
+		System.out.println("  isEmpty: " + deck2.isEmpty());
+		System.out.println("  size: " + deck2.size());
+		System.out.println();
+		System.out.println();
 	}
 }

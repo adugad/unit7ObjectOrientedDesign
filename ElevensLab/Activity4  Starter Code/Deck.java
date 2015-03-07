@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -31,13 +32,16 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		cards = new ArrayList<Card>();
-		for (int j = 0; j < ranks.length; j++) {
-			for (String suitString : suits) {
-				cards.add(new Card(ranks[j], suitString, values[j]));
-			}
-		}
+		for (int i = 0; i < suits.length; i++)
+		{
+		    for(int j = 0; j < ranks.length; j++)
+		    {
+		        Card card = new Card(ranks[j],suits[i],values[j]);
+		        cards.add(card);
+		      }
+		  }
 		size = cards.size();
-		shuffle();
+		//shuffle();
 	}
 
 
@@ -62,7 +66,15 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+	    Random generator = new Random();
+		for(int k = (cards.size()-1); k >= 0; k--)
+		{
+		    int r = generator.nextInt(k+1);
+		    Card temp = cards.get(k);
+		    cards.set(k, cards.get(r));
+		    cards.set(r,temp);
+		  }
+		size = cards.size();
 	}
 
 	/**
